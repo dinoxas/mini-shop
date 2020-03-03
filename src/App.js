@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "animate.css";
 import Products from "./components/Products";
 import Filter from "./components/Filter";
 
@@ -26,6 +27,15 @@ export class App extends Component {
       } else {
         state.products.sort((a, b) => (a.id < b.id ? 1 : -1));
       }
+
+      if (state.size !== "") {
+        return {
+          filteredProducts: state.products.filter(
+            a => a.availableSizes.indexOf(state.size.toUpperCase()) >= 0
+          )
+        };
+      }
+
       return { filteredProducts: state.products };
     });
   }
@@ -34,18 +44,18 @@ export class App extends Component {
     console.log("handleAddToCart");
   }
 
-  handleChangeSize(e) {
+  handleChangeSize = e => {
+    this.setState({ size: e.target.value });
+    this.listProducts();
+  };
+
+  handleChangeSort = e => {
     this.setState({ sort: e.target.value });
     this.listProducts();
-    console.log("handleChangeSize");
-  }
-
-  handleChangeSort() {
-    console.log("handleChangeSort");
-  }
+  };
 
   componentDidMount() {
-    fetch("http://localhost:8000/products/")
+    fetch("http://localhost:8000/products")
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -76,7 +86,6 @@ export class App extends Component {
               <Products
                 products={filteredProducts}
                 handleAddToCart={this.handleAddToCart}
-                product="dwd"
               />
             </div>
             <div className="col-md-4">cart</div>

@@ -14,7 +14,7 @@
       "sku": 11854078013954528,
       "title": "Danger Knife Grey T-Shirt",
       "description": "Danger Knife Grey",
-      "availableSizes": ["X", "M", "L"],
+      "availableSizes": ["X", "M", "L", "XS"],
       "price": 14.9,
       "isFreeShipping": true
     },
@@ -59,7 +59,7 @@
       "sku": 18532669286405344,
       "title": "Crazy Monkey Black T-Shirt",
       "description": "1977 Infantil",
-      "availableSizes": ["S"],
+      "availableSizes": ["XS", "S"],
       "style": "Preto com listras brancas",
       "price": 22.5,
       "isFreeShipping": true
