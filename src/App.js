@@ -3,13 +3,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "animate.css";
 import Products from "./components/Products";
 import Filter from "./components/Filter";
+import Cart from "./components/Cart";
 
 export class App extends Component {
   state = {
     size: "",
     sort: "",
     products: [],
-    filteredProducts: []
+    filteredProducts: [],
+    cartItems: []
   };
 
   listProducts() {
@@ -40,9 +42,34 @@ export class App extends Component {
     });
   }
 
-  handleAddToCart() {
-    console.log("handleAddToCart");
-  }
+  handleAddToCart = (e, product) => {
+    e.preventDefault();
+    this.setState(state => {
+      const cartItems = state.cartItems;
+      let productAlreadyInCart = false;
+      cartItems.forEach(item => {
+        if (item.id === product.id) {
+          productAlreadyInCart = true;
+          item.count++;
+        }
+      });
+
+      if (!productAlreadyInCart) {
+        cartItems.push({ ...product, count: 1 });
+      }
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      return cartItems;
+    });
+  };
+
+  handleRemoveFromCart = (e, item) => {
+    e.preventDefault();
+    this.setState(state => {
+      const cartItems = state.cartItems.filter(el => el.id !== item.id);
+      localStorage.setItem("cartItem", cartItems);
+      return { cartItems };
+    });
+  };
 
   handleChangeSize = e => {
     this.setState({ size: e.target.value });
@@ -63,14 +90,20 @@ export class App extends Component {
           products: data,
           filteredProducts: data
         });
+        if (localStorage.getItem("cartItems")) {
+          this.setState({
+            cartItems: JSON.parse(localStorage.getItem("cartItems"))
+          });
+        }
       });
   }
   render() {
-    const { size, sort, filteredProducts } = this.state;
+    const { size, sort, filteredProducts, cartItems } = this.state;
+
     return (
       <div>
         <div className="container">
-          <h1>Shopping cart apdwedwep</h1>
+          <h1>Shopping cart app</h1>
         </div>
 
         <div className="container">
@@ -88,7 +121,12 @@ export class App extends Component {
                 handleAddToCart={this.handleAddToCart}
               />
             </div>
-            <div className="col-md-4">cart</div>
+            <div className="col-md-4">
+              <Cart
+                cartItems={cartItems}
+                handleRemoveFromCart={this.handleRemoveFromCart}
+              />
+            </div>
           </div>
         </div>
       </div>
