@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import formatCurrency from "../utils/helper";
 
 export default class Cart extends Component {
   render() {
@@ -15,10 +16,11 @@ export default class Cart extends Component {
           <ul className="list-unstyled">
             {cartItems.map((item, index) => (
               <li key={index}>
-                <span>{item.title}</span> x{item.count}
+                <span>{item.title}</span> x{item.count} ={" "}
+                {formatCurrency(item.price * item.count)}{" "}
                 <a
                   href="#"
-                  className="badge badge-danger"
+                  className="badge badge-secondary"
                   onClick={e => handleRemoveFromCart(e, item)}
                 >
                   X
@@ -27,6 +29,11 @@ export default class Cart extends Component {
             ))}
           </ul>
         )}
+
+        <div className="font-weight-bold text-center">
+          Total:{" "}
+          {formatCurrency(cartItems.reduce((a, c) => a + c.price * c.count, 0))}
+        </div>
       </div>
     );
   }
