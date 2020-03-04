@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import formatCurrency from "../utils/helper";
+import { connect } from "react-redux";
+import { fetchProducts } from "../actions/products";
 
-export class Products extends Component {
+class Products extends Component {
+  componentDidMount() {
+    this.props.fetchProducts();
+  }
   render() {
     const { products } = this.props;
     return (
@@ -33,4 +38,10 @@ export class Products extends Component {
   }
 }
 
-export default Products;
+function mapStateToProps(state) {
+  return {
+    products: state.products.items
+  };
+}
+
+export default connect(mapStateToProps, { fetchProducts })(Products);
