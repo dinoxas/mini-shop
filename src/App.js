@@ -85,9 +85,9 @@ export class App extends Component {
 
   componentDidMount() {
     if (localStorage.getItem("cartItems")) {
-      this.setState({
-        cartItems: JSON.parse(localStorage.getItem("cartItems"))
-      });
+      // this.setState({
+      //   cartItems: JSON.parse(localStorage.getItem("cartItems"))
+      // });
     }
   }
   render() {

@@ -8,10 +8,10 @@ class Products extends Component {
     this.props.fetchProducts();
   }
   render() {
-    const { products } = this.props;
+    // const { products } = this.props;
     return (
       <div className="row">
-        {products.map((p, index) => (
+        {this.props.products.map((p, index) => (
           <div className="col-md-4" key={index}>
             <div className="thumbnail text-center">
               <a
@@ -38,10 +38,8 @@ class Products extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    products: state.products.items
-  };
-}
+const mapStateToProps = state => ({
+  products: state.products.filteredItems
+});
 
 export default connect(mapStateToProps, { fetchProducts })(Products);

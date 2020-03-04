@@ -1,14 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { sortProducts, filterProducts } from "../actions/products";
 
-export default class Filter extends Component {
+class Filter extends Component {
   render() {
-    const {
-      count,
-      size,
-      sort,
-      handleChangeSort,
-      handleChangeSize
-    } = this.props;
+    const { count, size, sort } = this.props;
     return (
       <div className="row">
         <div className="col-md-3">{count} found</div>
@@ -18,12 +14,17 @@ export default class Filter extends Component {
             <select
               className="form-control"
               id="sortSelect"
-              onChange={handleChangeSort}
+              onChange={e =>
+                this.props.sortProducts(
+                  this.props.filteredProducts,
+                  e.target.value
+                )
+              }
               value={sort}
             >
               <option value="">Select</option>
-              <option value="lowest">Price: Lowest - Highest</option>
-              <option value="highest">Price: Highest - Lowest</option>
+              <option value="lowest">Price: Lowest</option>
+              <option value="highest">Price: Highest</option>
             </select>
           </div>
         </div>
@@ -33,7 +34,9 @@ export default class Filter extends Component {
             <select
               className="form-control"
               id="sizeSelect"
-              onChange={handleChangeSize}
+              onChange={e =>
+                this.props.filterProducts(this.props.products, e.target.value)
+              }
               value={size}
             >
               <option value="">All</option>
@@ -50,3 +53,14 @@ export default class Filter extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  products: state.products.items,
+  filteredProducts: state.products.filteredItems,
+  size: state.products.size,
+  sort: state.products.sort
+});
+
+export default connect(mapStateToProps, { sortProducts, filterProducts })(
+  Filter
+);

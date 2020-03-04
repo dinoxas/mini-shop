@@ -20,7 +20,7 @@ export default class Cart extends Component {
                   <span>{item.title}</span> x{item.count} ={" "}
                   {item.price * item.count}{" "}
                   <a
-                    href="#"
+                    href="/"
                     className="badge badge-secondary"
                     onClick={e => handleRemoveFromCart(e, item)}
                   >
