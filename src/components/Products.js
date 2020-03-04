@@ -26,7 +26,7 @@ class Products extends Component {
                 />
                 <p>{p.title}</p>
               </a>
-              <div className="card-body">
+              <div className="mb-3">
                 <p>{formatCurrency(p.price)}</p>
                 <button
                   className="btn btn-outline-info"

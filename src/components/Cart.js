@@ -99,10 +99,12 @@ class Cart extends Component {
                   </td>
 
                   <td colSpan="2" className="text-right">
-                    Total{" "}
-                    {formatCurrency(
-                      cartItems.reduce((a, c) => a + c.price * c.count, 0)
-                    )}
+                    <strong>
+                      Total{" "}
+                      {formatCurrency(
+                        cartItems.reduce((a, c) => a + c.price * c.count, 0)
+                      )}
+                    </strong>
                   </td>
                 </tr>
               </tfoot>
