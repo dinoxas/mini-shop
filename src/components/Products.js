@@ -5,7 +5,7 @@ import { fetchProducts } from "../actions/products";
 import { addToCart } from "../actions/cart";
 
 class Products extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.fetchProducts();
   }
   render() {
@@ -13,18 +13,23 @@ class Products extends Component {
       <div className="row">
         {this.props.products.map((p, index) => (
           <div className="col-md-4" key={index}>
-            <div className="thumbnail text-center">
+            <div className="text-center">
               <a
+                className="text-info"
                 href={`#${p.id}`}
                 onClick={() => this.props.addToCart(this.props.cartItems, p)}
               >
-                <img src={`/products/${p.sku}_2.jpg`} alt={p.title} />
+                <img
+                  src={`/products/${p.sku}_2.jpg`}
+                  className="mb-3"
+                  alt={p.title}
+                />
                 <p>{p.title}</p>
               </a>
               <div className="card-body">
                 <p>{formatCurrency(p.price)}</p>
                 <button
-                  className="btn btn-primary"
+                  className="btn btn-outline-info"
                   onClick={() => this.props.addToCart(this.props.cartItems, p)}
                 >
                   Add to cart

@@ -14,7 +14,7 @@ export const addToCart = (items, product) => dispatch => {
     cartItems.push({ ...product, count: 1 });
   }
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  console.log("ADC LS: ", localStorage.getItem("cartItems"));
+
   return dispatch({
     type: ADD_TO_CART,
     payload: {
@@ -26,7 +26,7 @@ export const addToCart = (items, product) => dispatch => {
 export const removeFromCart = (items, product) => dispatch => {
   const cartItems = items.slice().filter(el => el.id !== product.id);
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
-  console.log("RC LS: ", localStorage.getItem("cartItems"));
+
   return dispatch({
     type: REMOVE_FROM_CART,
     payload: {
