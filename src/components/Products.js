@@ -7,15 +7,8 @@ import { addToCart } from "../actions/cart";
 class Products extends Component {
   componentWillMount() {
     this.props.fetchProducts();
-
-    // if (localStorage.getItem("cartItems")) {
-    //   this.setState({
-    //     cartItems: JSON.parse(localStorage.getItem("cartItems"))
-    //   });
-    // }
   }
   render() {
-    // const { products } = this.props;
     return (
       <div className="row">
         {this.props.products.map((p, index) => (

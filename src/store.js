@@ -5,6 +5,14 @@ import rootReducer from "./reducers";
 
 const initialState = {};
 
+console.log("store LS: ", localStorage.getItem("cartItems"));
+
+if (localStorage.getItem("cartItems")) {
+  initialState.cart = { items: JSON.parse(localStorage.getItem("cartItems")) };
+
+  console.log("initialStateCart: ", initialState.cart);
+}
+
 const store = createStore(
   rootReducer,
   initialState,

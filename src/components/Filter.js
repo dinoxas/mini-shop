@@ -4,10 +4,12 @@ import { sortProducts, filterProducts } from "../actions/products";
 
 class Filter extends Component {
   render() {
-    const { count, size, sort } = this.props;
+    const { size, sort } = this.props;
     return (
       <div className="row">
-        <div className="col-md-3">{count} found</div>
+        <div className="col-md-3">
+          {this.props.filteredProducts.length} found
+        </div>
         <div className="col-md-6">
           <div className="form-group">
             <label htmlFor="sortSelect">Order by</label>
