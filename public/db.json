@@ -6,7 +6,7 @@
       "title": "Sphynx Tie Dye Grey T-Shirt",
       "description": "Sphynx Tie Dye Grey",
       "availableSizes": ["X", "L", "XL", "XXL"],
-      "price": 10.0,
+      "price": 10,
       "isFreeShipping": true
     },
     {
@@ -14,8 +14,8 @@
       "sku": 11854078013954528,
       "title": "Danger Knife Grey T-Shirt",
       "description": "Danger Knife Grey",
-      "availableSizes": ["X", "M", "L", "XS"],
-      "price": 14.99,
+      "availableSizes": ["X", "M", "L"],
+      "price": 14.9,
       "isFreeShipping": true
     },
     {
@@ -33,7 +33,7 @@
       "title": "Born On The Streets  T-Shirt",
       "description": "Born On The Streets",
       "availableSizes": ["XL"],
-      "price": 25.99,
+      "price": 25.9,
       "isFreeShipping": false
     },
     {
@@ -59,7 +59,7 @@
       "sku": 18532669286405344,
       "title": "Crazy Monkey Black T-Shirt",
       "description": "1977 Infantil",
-      "availableSizes": ["XS", "S"],
+      "availableSizes": ["S"],
       "style": "Preto com listras brancas",
       "price": 22.5,
       "isFreeShipping": true

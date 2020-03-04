@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import formatCurrency from "../utils/helper";
+import { connect } from "react-redux";
+import { removeFromCart } from "../actions/cart";
 
-export default class Cart extends Component {
+class Cart extends Component {
   render() {
-    const { cartItems, handleRemoveFromCart } = this.props;
+    const { cartItems } = this.props;
     return (
       <div className="alert alert-info">
         <p className="text-center">
@@ -22,7 +24,10 @@ export default class Cart extends Component {
                   <a
                     href="/"
                     className="badge badge-secondary"
-                    onClick={e => handleRemoveFromCart(e, item)}
+                    onClick={e => {
+                      e.preventDefault();
+                      this.props.removeFromCart(this.props.cartItems, item);
+                    }}
                   >
                     X
                   </a>
@@ -47,3 +52,9 @@ export default class Cart extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  cartItems: state.cart.items
+});
+
+export default connect(mapStateToProps, { removeFromCart })(Cart);

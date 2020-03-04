@@ -2,10 +2,17 @@ import React, { Component } from "react";
 import formatCurrency from "../utils/helper";
 import { connect } from "react-redux";
 import { fetchProducts } from "../actions/products";
+import { addToCart } from "../actions/cart";
 
 class Products extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchProducts();
+
+    // if (localStorage.getItem("cartItems")) {
+    //   this.setState({
+    //     cartItems: JSON.parse(localStorage.getItem("cartItems"))
+    //   });
+    // }
   }
   render() {
     // const { products } = this.props;
@@ -16,7 +23,7 @@ class Products extends Component {
             <div className="thumbnail text-center">
               <a
                 href={`#${p.id}`}
-                onClick={e => this.props.handleAddToCart(e, p)}
+                onClick={() => this.props.addToCart(this.props.cartItems, p)}
               >
                 <img src={`/products/${p.sku}_2.jpg`} alt={p.title} />
                 <p>{p.title}</p>
@@ -25,7 +32,7 @@ class Products extends Component {
                 <p>{formatCurrency(p.price)}</p>
                 <button
                   className="btn btn-primary"
-                  onClick={e => this.props.handleAddToCart(e, p)}
+                  onClick={() => this.props.addToCart(this.props.cartItems, p)}
                 >
                   Add to cart
                 </button>
@@ -39,7 +46,8 @@ class Products extends Component {
 }
 
 const mapStateToProps = state => ({
-  products: state.products.filteredItems
+  products: state.products.filteredItems,
+  cartItems: state.cart.items
 });
 
-export default connect(mapStateToProps, { fetchProducts })(Products);
+export default connect(mapStateToProps, { fetchProducts, addToCart })(Products);
