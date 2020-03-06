@@ -5,7 +5,8 @@ import {
 } from "./types";
 
 export const fetchProducts = () => dispatch => {
-  fetch("http://localhost:8000/products")
+  // fetch("http://localhost:8000/products")
+  fetch("https://www.mocky.io/v2/5e62a00a3000008e004d5b6a")
     .then(res => res.json())
     .then(data => {
       return dispatch({
