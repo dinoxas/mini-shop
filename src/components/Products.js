@@ -17,7 +17,10 @@ class Products extends Component {
               <a
                 className="text-info"
                 href={`#${p.id}`}
-                onClick={() => this.props.addToCart(this.props.cartItems, p)}
+                onClick={e => {
+                  e.preventDefault();
+                  this.props.addToCart(this.props.cartItems, p);
+                }}
               >
                 <img
                   src={`/products/${p.sku}_2.jpg`}

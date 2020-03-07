@@ -33,6 +33,16 @@ class App extends Component {
 
         <div className="container">
           <div className="row">
+            <div className="col-lg-12">
+              <div className="text-center alert alert-info">
+                <p className="mb-0">
+                  Shopping cart app with React &amp; Redux. <br />
+                  Open the console to see the current action and state.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="row">
             <div className="col-lg-8">
               <Filter
                 size={this.props.size}

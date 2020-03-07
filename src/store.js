@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
+import logger from "./middleware/logger";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import rootReducer from "./reducers";
 
@@ -12,7 +13,7 @@ if (localStorage.getItem("cartItems")) {
 const store = createStore(
   rootReducer,
   initialState,
-  composeWithDevTools(applyMiddleware(thunk))
+  composeWithDevTools(applyMiddleware(thunk, logger))
 );
 
 export default store;

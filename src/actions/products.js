@@ -6,7 +6,7 @@ import {
 
 export const fetchProducts = () => dispatch => {
   // fetch("http://localhost:8000/products")
-  fetch("https://www.mocky.io/v2/5e62a00a3000008e004d5b6a")
+  fetch("https://www.mocky.io/v2/5e63ae8a360000b511e8dd6a")
     .then(res => res.json())
     .then(data => {
       return dispatch({
