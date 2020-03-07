@@ -1,4 +1,4 @@
-# Simple E-commerse/Shopping Cart app with React and Redux
+## Simple shopping cart app with React and Redux
 
 [Demo](https://dinoxas-shoppingcart.netlify.com/)
 
