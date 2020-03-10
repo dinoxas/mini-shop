@@ -23,8 +23,8 @@ class Products extends Component {
                 }}
               >
                 <img
-                  src={`/products/${p.sku}_2.jpg`}
-                  className="mb-3"
+                  src={`/products/${p.sku}_1.jpg`}
+                  className="mb-3 w-75"
                   alt={p.title}
                 />
                 <p>{p.title}</p>

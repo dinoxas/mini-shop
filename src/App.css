@@ -1,38 +1,58 @@
-.App {
-  text-align: center;
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1021;
+  top: 0;
+  right: 0;
+  background-color: #f8f9fa;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 15px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sidebar a:hover {
+  color: #f1f1f1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.sidebar .closebtn {
+  background: transparent;
+  border: 0;
+  width: 30px;
+  margin: 0 auto;
+  display: block;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar.open {
+  width: 350px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #343a40;
+  color: #fff;
+  padding: 0 5px;
+  border: none;
+  position: relative;
+  z-index: 3;
+}
+
+.openbtn:hover {
+  background-color: #343a40;
+}
+
+@media screen and (max-width: 600px) {
+  .sidebar.open {
+    width: 300px;
   }
 }
