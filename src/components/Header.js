@@ -20,10 +20,14 @@ class Header extends Component {
           <ul className="navbar-nav ml-auto text-light d-inline-block">
             <li className="nav-item">
               <button className="openbtn mr-0" onClick={() => this.showCart()}>
-                <FaShoppingCart size="30" />
+                <FaShoppingCart size="30" />{" "}
+                <span
+                  className="badge badge-danger"
+                  style={{ fontSize: "60%" }}
+                >
+                  {cartItems.length}
+                </span>
               </button>
-
-              <span className="badge badge-danger">{cartItems.length}</span>
             </li>
           </ul>
         </div>

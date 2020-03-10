@@ -1,24 +1,24 @@
 .sidebar {
   height: 100%;
-  width: 0;
+  width: 500px;
   position: fixed;
   z-index: 1021;
   top: 0;
-  right: 0;
+  right: -500px;
   background-color: #f8f9fa;
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: 0.3s;
   padding-top: 15px;
 }
 
-.sidebar a {
+/* .sidebar a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
   color: #818181;
   display: block;
   transition: 0.3s;
-}
+} */
 
 .sidebar a:hover {
   color: #f1f1f1;
@@ -33,7 +33,7 @@
 }
 
 .sidebar.open {
-  width: 350px;
+  right: 0;
 }
 
 .openbtn {

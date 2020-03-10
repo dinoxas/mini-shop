@@ -27,12 +27,12 @@ class Products extends Component {
                   className="mb-3 w-75"
                   alt={p.title}
                 />
-                <p>{p.title}</p>
+                <div className="font-weight-bold">{p.title}</div>
               </a>
               <div className="mb-3">
                 <p>{formatCurrency(p.price)}</p>
                 <button
-                  className="btn btn-outline-info"
+                  className="btn btn-info"
                   onClick={() => this.props.addToCart(this.props.cartItems, p)}
                 >
                   Add to cart

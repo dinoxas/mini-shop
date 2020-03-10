@@ -9,7 +9,7 @@ class Filter extends Component {
       <Fragment>
         <div className="row">
           <div className="col-md-8">
-            <div className="form-group">
+            <div className="form-group pl-5 pr-5">
               <label htmlFor="sortSelect">Order by</label>
               <select
                 className="form-control"
@@ -29,7 +29,7 @@ class Filter extends Component {
             </div>
           </div>
           <div className="col-md-4">
-            <div className="form-group">
+            <div className="form-group pl-5 pr-5">
               <label htmlFor="sizeSelect">Size</label>
               <select
                 className="form-control"

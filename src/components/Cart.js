@@ -67,13 +67,13 @@ class Cart extends Component {
               ))}
             </ul>
             <button
-              className="float-left btn btn-info btn-lg"
-              onClick={() => window.alert("TODO: Implement checkout")}
+              className="float-left btn btn-warning btn-lg"
+              onClick={() => alert("TODO: create checkout view")}
             >
               Checkout
             </button>
             <p className="float-right font-weight-bold mt-3">
-              Total{" "}
+              Total:{" "}
               {formatCurrency(
                 cartItems.reduce((a, c) => a + c.price * c.count, 0)
               )}
